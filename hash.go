@@ -6,6 +6,7 @@ package main
 // I think this is a way of saving space, so that I don't need to import every directory within the crypto package.
 import (
 	"crypto/aes"
+	"encoding/hex"
 	"fmt"
 )
 
@@ -25,5 +26,26 @@ func encryptMessage(key string, message string) string {
 	// But I did not import that package. Only fmt, crypto/aes and crypto/hex.
 	// How do I figure this out? If I try to run this, will it import that package for me?
 	c.Encrypt(msgByte, []byte(message))
+	// I think the below line is converting the byte array into a string.(GCP). It would appear it is a string being returned.
+	return hex.EncodeToString(msgByte)
+}
 
+func decryptMessage(key string, message string) string {
+	// I'm not sure what the underscore _ is on the line below is for. Is it an err? The hex.DecodeString() function apparently "returns the byte repesented by the hexadecimal string 's'."
+	txt, _ := hex.DecodeString(message)
+	// I'm still getting my head around the declaration of a second variable in declarations like below. I know err is related to errors, but is it a variable? Is it built in variable? I guess the function returns two variables, so the second variable it returns is the error.
+	c, err := aes.NewCipher([]byte(key))
+	// I presume the the below line is checking to see if an error exists? If the error is not an empty variable, then it will print the error.
+	if err != nil {
+		fmt.Println(err)
+	}
+	// Below I see that the make() function is used again, like in the previous function. The first argument is the length of the array. (GCP) And the second is the len() function is returning an int that is the length of the string passed in.
+	msgByte := make([]byte, len(txt))
+	// Below the Decrypt function is being called on the c variable declared above.
+	c.Decrypt(msgByte, []byte(txt))
+
+	// Ok, in the below line, it looks like he is declaring a variable named 'msg'. I see he is using := (walrus operator) to declare the variable. He is specifying the type of the variable, which i didn't think was necessary when using a walrus operator. Maybe its only because of the complex code after it? What does (msgByte[:]) mean? Is it the value of the array at that specific index? What exactly is : in the square brackets for?
+	msg := string(msgByte[:])
+	// This function returns the variable called msg, which is a string.
+	return msg
 }
