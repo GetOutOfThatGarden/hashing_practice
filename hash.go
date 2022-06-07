@@ -62,4 +62,5 @@ func main() {
 	// Below are the encrypted and decrypted messages that are being printed to terminal
 	fmt.Println("Encrypted Message is: ", emsg)
 	fmt.Println("Decrypted Message is: ", dmesg)
+	.
 }
