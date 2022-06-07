@@ -48,5 +48,14 @@ func decryptMessage(key string, message string) string {
 	msg := string(msgByte[:])
 	// This function returns the variable called msg, which is a string.
 	return msg
+}
 
+func main() {
+	plainText := "This is a secret"
+	key := "this_must_be_of_32_byte_length!!"
+
+	// Ok, below we are calling on the functions we made earlier in the code. The arguments to the first function is declared in the lines above.
+	emsg := encryptMessage(key, plainText)
+	// And for the below function, the second argument is the the emsg variable in the function above.
+	dmesg := decryptMessage(key, emsg)
 }
