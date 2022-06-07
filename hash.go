@@ -58,4 +58,8 @@ func main() {
 	emsg := encryptMessage(key, plainText)
 	// And for the below function, the second argument is the the emsg variable in the function above.
 	dmesg := decryptMessage(key, emsg)
+
+	// Below are the encrypted and decrypted messages that are being printed to terminal
+	fmt.Println("Encrypted Message is: ", emsg)
+	fmt.Println("Decrypted Message is: ", dmesg)
 }
