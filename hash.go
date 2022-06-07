@@ -48,4 +48,6 @@ func decryptMessage(key string, message string) string {
 	msg := string(msgByte[:])
 	// This function returns the variable called msg, which is a string.
 	return msg
+
+	.
 }
