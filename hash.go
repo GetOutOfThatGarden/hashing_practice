@@ -15,7 +15,7 @@ func encryptMessage(key string, message string) string {
 	if err != nil {
 		fmt.Println(err)
 	}
-	// I just learned that the below 'make()' function is used to create a dynamic array.
+	// I just learned that the below 'make()' function is used
 	// The 'len()' callback funtion within the make() function returns the length of the string passed in to it as an integer.
 	// It is another  built in function.
 	msgByte := make([]byte, len(message))
