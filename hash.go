@@ -40,14 +40,14 @@ func decryptMessage(key string, message string) string {
 
 func inputText() string {
 
-	var input string
+	var secretMessage string
 
 	fmt.Println("Please enter text to be encoded:")
 	scanner := bufio.NewScanner(os.Stdin)
 	scanner.Scan()
-	input = scanner.Text()
+	secretMessage = scanner.Text()
 
-	return input
+	return secretMessage
 
 }
 
