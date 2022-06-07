@@ -49,5 +49,4 @@ func decryptMessage(key string, message string) string {
 	// This function returns the variable called msg, which is a string.
 	return msg
 
-	.
 }
